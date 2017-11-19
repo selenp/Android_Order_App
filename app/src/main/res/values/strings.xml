@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FinalDemo</string>
+    <dimen name="font_size_button">25sp</dimen>
+    <dimen name="font_size_text">40sp</dimen>
+</resources>
