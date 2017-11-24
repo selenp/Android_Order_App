@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void run() {
-                Intent turn = new Intent(MainActivity.this, CheckActivity.class);
+                Intent turn = new Intent(MainActivity.this, TimeActivity.class);
                 startActivity(turn);
                 finish();
             }

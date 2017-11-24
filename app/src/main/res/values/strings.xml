@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">FinalDemo</string>
+    <string name="home">Order</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
     <dimen name="font_size_button">25sp</dimen>
     <dimen name="font_size_text">40sp</dimen>
 </resources>

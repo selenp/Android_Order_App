@@ -19,10 +19,12 @@ public class CheckActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.checkuser);
-        addListenerOnButton();
+        setContentView(R.layout.time_check);
+        //setContentView(R.layout.checkuser);
+        //addListenerOnButton();
     }
 
+    /*
     public void addListenerOnButton() {
 
         final Context context = this;
@@ -55,4 +57,5 @@ public class CheckActivity extends Activity{
         });
 
     }
+    */
 }

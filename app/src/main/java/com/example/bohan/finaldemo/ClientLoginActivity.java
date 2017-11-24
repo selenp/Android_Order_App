@@ -57,7 +57,7 @@ public class ClientLoginActivity extends Activity implements View.OnClickListene
 
         if(nameUser.equals("Bo")&&passwordUser.equals("AAA"))
         {
-            Intent notifyMenu = new Intent(ClientLoginActivity.this,ShowMenuActivity.class);
+            Intent notifyMenu = new Intent(ClientLoginActivity.this,TestActivity.class);
             startActivity(notifyMenu);
         }
 

@@ -57,7 +57,7 @@ public class ChefLoginActivity extends Activity implements View.OnClickListener{
 
         if(nameChef.equals("Bo")&&passwordChef.equals("AAA"))
         {
-            Intent notifyMenu = new Intent(ChefLoginActivity.this,ShowMenuActivity.class);
+            Intent notifyMenu = new Intent(ChefLoginActivity.this,SignUpActivity.class);
             startActivity(notifyMenu);
         }
 
