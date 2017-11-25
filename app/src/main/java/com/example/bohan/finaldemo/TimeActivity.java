@@ -11,17 +11,43 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 /**
  * Created by bohan on 11/23/17.
  */
 
 public class TimeActivity extends Activity implements NavigationView.OnNavigationItemSelectedListener{
 
+    private FirebaseAuth.AuthStateListener authListener;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.time_check);
+
+        auth = FirebaseAuth.getInstance();
+
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        /*
+        authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    // user auth state is changed - user is null
+                    // launch login activity
+                    startActivity(new Intent(MainActivity.this, LogInActivity.class));
+                    finish();
+                }
+            }
+        };
+        */
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

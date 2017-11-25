@@ -8,6 +8,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.content.Intent;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * Created by bohan on 11/17/17.
  */
@@ -18,6 +22,9 @@ public class ClientLoginActivity extends Activity implements View.OnClickListene
     Button cancelButton;
     TextView userName;
     TextView userPassword;
+
+    private DatabaseReference mUserReference;
+    private DataSnapshot snapShot;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +38,11 @@ public class ClientLoginActivity extends Activity implements View.OnClickListene
         cancelButton.getBackground().setAlpha(0);
         loginButton.setOnClickListener(this);
         cancelButton.setOnClickListener(this);
+
+        mUserReference = FirebaseDatabase.getInstance().getReference().child("users");
+        UserAccount userH = snapShot.getValue(UserAccount.class);
+        String name = userH.username;
+       // userName.setText(name);
         //signIn.setTextColor(signIn.getTextColors().withAlpha(255));
         //signIn.getBackground().setAlpha(0);
     }
