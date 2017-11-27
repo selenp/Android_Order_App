@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
         final ImageView  mImageView ;
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReferenceFromUrl("gs://finaldemo-eb9ca.appspot.com").child("pigfly.jpg");
@@ -67,7 +68,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void run() {
-                Intent turn = new Intent(MainActivity.this, TestDemoActivity.class);
+                Intent turn = new Intent(MainActivity.this, CheckActivity.class);
                 startActivity(turn);
                 finish();
             }
