@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@mipmap/salmon"
-    android:fillViewport="true">
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/drawer_layout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@mipmap/salmon"
+android:fitsSystemWindows="true"
+tools:openDrawer="start">
 
 <LinearLayout
     android:orientation="vertical"
@@ -54,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="0dp"
-        android:padding="12dp"
+        android:padding="3dp"
         android:text="Sign in"/>
 
     <android.support.v7.widget.AppCompatButton
@@ -62,10 +66,40 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="24dp"
-        android:padding="12dp"
+        android:layout_marginBottom="0dp"
+        android:padding="3dp"
         android:text="Cancel"/>
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/bUserCreate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:padding="3dp"
+        android:text="Create Account"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/userSignStatus"
+        android:layout_below="@+id/bUserCreate"
+
+        android:layout_marginTop="15dp" />
 
 
 </LinearLayout>
-</ScrollView>
+
+
+
+<android.support.design.widget.NavigationView
+    android:id="@+id/nav_view"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:fitsSystemWindows="true"
+
+    app:menu="@menu/nav_menu" />
+
+</android.support.v4.widget.DrawerLayout>
