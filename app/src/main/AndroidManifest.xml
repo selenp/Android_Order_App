@@ -34,6 +34,8 @@
         </activity>
         <activity android:name=".TestDemoActivity">
         </activity>
+        <activity android:name=".TimePickerActivity">
+        </activity>
 
     </application>
 

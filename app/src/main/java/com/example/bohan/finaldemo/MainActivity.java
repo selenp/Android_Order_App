@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
             public void run() {
                 if(user != null)
                 {
-                    Intent turn = new Intent(MainActivity.this, ShowMenuActivity.class);
+                    Intent turn = new Intent(MainActivity.this,ShowMenuActivity.class);
                     startActivity(turn);
                     finish();
                 }
