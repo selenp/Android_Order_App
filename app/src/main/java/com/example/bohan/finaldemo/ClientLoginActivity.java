@@ -21,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by bohan on 11/17/17.
@@ -37,6 +39,7 @@ public class ClientLoginActivity extends AppCompatActivity implements View.OnCli
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mDatabase;
 
     private final String TAG = "FB_SIGNIN";
 
@@ -51,6 +54,8 @@ public class ClientLoginActivity extends AppCompatActivity implements View.OnCli
         createButton = (Button) findViewById(R.id.bUserCreate);
         userEmail = (TextView) findViewById(R.id.tUserName);
         userPassword = (TextView) findViewById(R.id.tUserPassword);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         loginButton.getBackground().setAlpha(0);
         cancelButton.getBackground().setAlpha(0);
@@ -162,7 +167,7 @@ public class ClientLoginActivity extends AppCompatActivity implements View.OnCli
         if (!checkFormFields())
             return;
 
-        String email = userEmail.getText().toString();
+        final String email = userEmail.getText().toString();
         String password = userPassword.getText().toString();
 
         // TODO: sign the user in with email and password credentials
@@ -173,6 +178,8 @@ public class ClientLoginActivity extends AppCompatActivity implements View.OnCli
                         if(task.isSuccessful())
                         {
                             Toast.makeText(ClientLoginActivity.this, "Signed In", Toast.LENGTH_SHORT).show();
+
+                            mDatabase.child("customers").child(EncodeString(email)).setValue("SignIn");
                             Intent showMenu = new Intent(ClientLoginActivity.this, ShowMenuActivity.class);
                             startActivity(showMenu);
                         }
@@ -220,8 +227,14 @@ public class ClientLoginActivity extends AppCompatActivity implements View.OnCli
 
     private void signUserOut() {
         // TODO: sign the user out
+        final String email = userEmail.getText().toString();
         mAuth.signOut();
+        mDatabase.child("customers").child(EncodeString(email)).setValue("SignOut");
         updateStatus();
+    }
+
+    public static String EncodeString(String string) {
+        return string.replace(".", ",");
     }
 
 }

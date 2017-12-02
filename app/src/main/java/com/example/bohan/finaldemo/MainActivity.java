@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -31,12 +33,13 @@ public class MainActivity extends Activity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private boolean status;
-
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -47,6 +50,9 @@ public class MainActivity extends Activity {
                 if(user != null)
                 {
                     Intent turn = new Intent(MainActivity.this,ShowMenuActivity.class);
+
+                    String userEmail = user.getEmail();
+                    mDatabase.child("customers").setValue(userEmail);
                     startActivity(turn);
                     finish();
                 }

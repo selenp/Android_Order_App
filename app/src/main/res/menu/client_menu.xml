@@ -10,9 +10,9 @@
 
             android:title="My Account" />
         <item
-            android:id="@+id/client_menu_settings"
+            android:id="@+id/client_menu_viewcart"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="Settings"
+            android:title="View Cart"
             />
         <item
             android:id="@+id/client_menu_logout"

@@ -36,6 +36,8 @@
         </activity>
         <activity android:name=".TimePickerActivity">
         </activity>
+        <activity android:name=".ViewCartActivity">
+        </activity>
 
     </application>
 
